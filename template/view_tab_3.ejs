@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<!--캘린더-->
+	<style>
+		body {
+			margin: 40px 10px;
+			padding: 0;
+			font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+			font-size: 14px;
+		}
+
+		#calendar {
+			max-width: 1100px;
+			margin: 0 auto;
+		}
+	</style>
+	<!-- 오픈 소스 CSS-->
+	<link rel="shortcut icon" href="">
+	<link rel="stylesheet" type="text/css" href="/css/vendor.min.css" />
+	<link rel="stylesheet" type="text/css" href="/css/app.min.css" />
+	<link rel="stylesheet" type="text/css" href="/css/nv.d3.css" />
+	<!--Calendar js-->
+	
+	<!-- 오픈 소스 JavaScript -->
+	<script src="/js/d3.min.js"></script>
+	<script src="/js/nv.d3.min.js"></script>
+	<script src="/js/vendor.min.js"></script>
+	<script src="/js/app.min.js"></script>
+	<script src='/js/index.global.js'></script>
+	
+	
+
+	
+	<meta charset="utf-8" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+
+	<title>Color Admin | HTML Startup</title>
+	
+	<script>
+        // 배열을 사용하여 데이터를 저장할 수 있습니다.
+        var data = [];
+
+        // 추가 버튼 클릭 시 데이터를 저장하도록 이벤트 핸들러를 연결합니다.
+        document.getElementById("addButton").addEventListener("click", function () {
+            var inputData = document.getElementById("dataInput").value;
+            data.push(inputData);
+            document.getElementById("dataInput").value = ""; // 입력 필드 초기화
+            displayData();
+        });
+
+        // 데이터를 표시하는 함수
+        function displayData() {
+            var display = document.getElementById("displayData");
+            display.innerHTML = "Data: " + data.join(", ");
+        }
+    </script>
+</head>
+
+<body>
+    <script>
+        function mv1() {
+            location.href("/view")
+        }
+    </script>
+	<!-- BEGIN #app -->
+	<div id="app" class="app app-header-fixed app-sidebar-fixed app-with-wide-sidebar app-with-light-sidebar">
+		<!-- BEGIN #header -->
+		<div id="header" class="app-header">
+			<!-- BEGIN navbar-header -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-desktop-toggler" data-toggle="app-sidebar-minify">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="view.ejs" class="navbar-brand">
+					<b class="me-1">Color</b> Admin
+					<span class="navbar-logo">
+						<span class="text-blue">G</span>
+						<span class="text-red">o</span>
+						<span class="text-orange">o</span>
+						<span class="text-blue">g</span>
+						<span class="text-green">l</span>
+						<span class="text-red">e</span>
+					</span>
+				</a>
+				<button type="button" class="navbar-mobile-toggler" data-toggle="app-sidebar-mobile">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<!-- END navbar-header -->
+			<!-- BEGIN header-nav -->
+			<div class="navbar-nav">
+				<div class="navbar-item navbar-form">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder='Try searching "Users Today"' />
+						<button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+					</div>
+				</div>
+				<div class="navbar-item dropdown">
+					<a href="#" data-bs-toggle="dropdown" class="navbar-link dropdown-toggle icon">
+						<i class="fa fa-bell"></i>
+						<span class="badge">0</span>
+					</a>
+					<div class="dropdown-menu media-list dropdown-menu-end">
+						<div class="dropdown-header">NOTIFICATIONS (0)</div>
+						<div class="text-center w-300px py-3">
+							No notification found
+						</div>
+					</div>
+				</div>
+				<div class="navbar-item navbar-user dropdown">
+					<a href="#" class="navbar-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown">
+						<div class="image image-icon bg-gray-800 text-gray-600">
+							<i class="fa fa-user"></i>
+						</div>
+						<span class="d-none d-md-inline">Adam Schwartz</span> <b class="caret ms-lg-2"></b>
+					</a>
+					<div class="dropdown-menu dropdown-menu-end me-1">
+						<a href="javascript:;" class="dropdown-item">Edit Profile</a>
+						<a href="javascript:;" class="dropdown-item d-flex align-items-center">
+							Inbox
+							<span class="badge bg-danger rounded-pill ms-auto pt-5px">2</span>
+						</a>
+						<a href="javascript:;" class="dropdown-item">Calendar</a>
+						<a href="javascript:;" class="dropdown-item">Setting</a>
+						<div class="dropdown-divider"></div>
+						<a href="javascript:;" class="dropdown-item">Log Out</a>
+					</div>
+				</div>
+			</div>
+			<!-- END header-nav -->
+		</div>
+		<!-- END #header -->
+		<!-- BEGIN #sidebar -->
+		<div id="sidebar" class="app-sidebar">
+			<!-- BEGIN scrollbar -->
+			<div class="app-sidebar-content" data-scrollbar="true" data-height="100%">
+				<!-- BEGIN menu -->
+				<div class="menu">
+					<div class="menu-profile">
+						<a href="javascript:;" class="menu-profile-link" data-toggle="app-sidebar-profile"
+							data-target="#appSidebarProfileMenu">
+							<div class="menu-profile-cover with-shadow"></div>
+							<div class="menu-profile-image menu-profile-image-icon bg-gray-900 text-gray-600">
+								<i class="fa fa-user fs-48px mb-n4"></i>
+							</div>
+							<div class="menu-profile-info">
+								<div class="d-flex align-items-center">
+									<div class="flex-grow-1">
+										지현석
+									</div>
+									<div class="menu-caret ms-auto"></div>
+								</div>
+								<small>Front end developer</small>
+							</div>
+						</a>
+					</div>
+					<div id="appSidebarProfileMenu" class="collapse">
+						<div class="menu-item pt-5px">
+							<a href="javascript:;" class="menu-link">
+								<div class="menu-icon"><i class="fa fa-cog"></i></div>
+								<div class="menu-text">Settings</div>
+							</a>
+						</div>
+						<div class="menu-item">
+							<a href="javascript:;" class="menu-link">
+								<div class="menu-icon"><i class="fa fa-pencil-alt"></i></div>
+								<div class="menu-text"> Send Feedback</div>
+							</a>
+						</div>
+						<div class="menu-item pb-5px">
+							<a href="javascript:;" class="menu-link">
+								<div class="menu-icon"><i class="fa fa-question-circle"></i></div>
+								<div class="menu-text"> Helps</div>
+							</a>
+						</div>
+						<div class="menu-divider m-0"></div>
+					</div>
+					<div class="menu-header">Navigation</div>
+					<div class="menu-item active">
+						<a href="index.html" class="menu-link">
+							<div class="menu-icon">
+								<i class="material-icons">home</i>
+							</div>
+							<div class="menu-text">매출 관리 리스트</div>
+						</a>
+					</div>
+
+					<div class="menu-item has-sub">
+						<a href="javascript:;" class="menu-link">
+							<div class="menu-icon">
+								<i class="material-icons">list</i>
+							</div>
+							<div class="menu-text">Menu Level</div>
+							<div class="menu-caret"></div>
+						</a>
+						<div class="menu-submenu">
+							<div class="menu-item has-sub">
+								<a href="javascript:;" class="menu-link">
+									<div class="menu-text">Menu 1.1</div>
+									<div class="menu-caret"></div>
+								</a>
+								<div class="menu-submenu">
+									<div class="menu-item has-sub">
+										<a href="javascript:;" class="menu-link">
+											<div class="menu-text">Menu 2.1</div>
+											<div class="menu-caret"></div>
+										</a>
+										<div class="menu-submenu">
+											<div class="menu-item"><a href="javascript:;" class="menu-link">
+													<div class="menu-text">Menu 3.1</div>
+												</a></div>
+											<div class="menu-item"><a href="javascript:;" class="menu-link">
+													<div class="menu-text">Menu 3.2</div>
+												</a></div>
+										</div>
+									</div>
+									<div class="menu-item"><a href="javascript:;" class="menu-link">
+											<div class="menu-text">Menu 2.2</div>
+										</a></div>
+									<div class="menu-item"><a href="javascript:;" class="menu-link">
+											<div class="menu-text">Menu 2.3</div>
+										</a></div>
+								</div>
+							</div>
+							<div class="menu-item"><a href="javascript:;" class="menu-link">
+									<div class="menu-text">Menu 1.2</div>
+								</a></div>
+							<div class="menu-item"><a href="javascript:;" class="menu-link">
+									<div class="menu-text">Menu 1.3</div>
+								</a></div>
+						</div>
+					</div>
+				</div>
+				<!-- END menu -->
+			</div>
+			<!-- END scrollbar -->
+		</div>
+		<div class="app-sidebar-bg"></div>
+		<div class="app-sidebar-mobile-backdrop"><a href="#" data-dismiss="app-sidebar-mobile"
+				class="stretched-link"></a></div>
+		<!-- END #sidebar -->
+
+		<!-- BEGIN #content -->
+		<div id="content" class="app-content">
+			<!-- BEGIN breadcrumb -->
+			<ol class="breadcrumb float-xl-end">
+				<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
+				<li class="breadcrumb-item"><a href="javascript:;">Library</a></li>
+				<li class="breadcrumb-item active">Data</li>
+			</ol>
+			<!-- END breadcrumb -->
+			<!-- BEGIN page-header -->
+			<h1 class="page-header">매출관리표 <small>header small text goes here...</small></h1>
+			<!-- END page-header -->
+
+			<!-- BEGIN panel -->
+			<div class="panel panel-inverse panel-with-tabs">
+				<div class="panel-heading p-0">
+					<div class="tab-overflow">
+						<ul class="nav nav-tabs nav-tabs-inverse">
+							<li class="nav-item prev-button"><a href="javascript:;" data-click="prev-tab"
+									class="nav-link text-primary"><i class="fa fa-arrow-left"></i></a></li>
+							<li class="nav-item">
+								<a href="#nav-tab-1" data-bs-toggle="tab" class="nav-link " onclick="mv1()">Nav Tab 1</a>
+							</li>
+							<li class="nav-item">
+								<a href="#nav-tab-2" data-bs-toggle="tab" class="nav-link " onclick="mv2()">Nav Tab 2</a>
+							</li>
+							<li class="nav-item">
+								<a href="#nav-tab-3" data-bs-toggle="tab" class="nav-link active">Nav Tab 3</a>
+							</li>
+							<li class="nav-item">
+								<a href="#nav-tab-4" data-bs-toggle="tab" class="nav-link " onclick="mv4()">Nav Tab 4</a>
+							</li>
+							<li class="nav-item">
+								<a href="#nav-tab-5" data-bs-toggle="tab" class="nav-link ">Nav Tab 5</a>
+							</li>
+							<li class="nav-item next-button"><a href="javascript:;" data-click="next-tab"
+									class="nav-link text-primary"><i class="fa fa-arrow-right"></i></a></li>
+						</ul>
+					</div>
+					<div class="panel-heading-btn me-2 ms-2 d-flex">
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-secondary"
+							data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
+					</div>
+				</div>
+				<!-- 매출 내역 -->
+				<div class="panel-body tab-content">
+					<div class="tab-pane fade active show" id="nav-tab-2">
+						<div id="calendar"></div>
+						<div id="net-profit">순이익:</div>
+						<script>
+							var monthlyFee = {};
+					
+							document.addEventListener("DOMContentLoaded", function () {
+								var calendarElement = document.getElementById("calendar");
+								var netProfitElement = document.getElementById("net-profit");
+
+								var calendar = new FullCalendar.Calendar(calendarElement, {
+									initialView: "dayGridMonth",
+									selectable: true,
+									select: function (arg) {
+										var fee = prompt('Enter Fee (integer):');
+										fee = parseInt(fee);
+					
+										if (!isNaN(fee)) {
+											var start = arg.start;
+											var end = arg.end || arg.start;
+					
+											calendar.addEvent({
+												title: fee,
+												start: start,
+												end: end,
+												allDay: true,
+												editable: true,
+												backgroundColor: 'lightblue'
+											});
+					
+											updateMonthlyFee(start, fee);
+											updateNetProfit(start);
+										} else {
+											alert('올바른 인트 값을 입력하세요.');
+										}
+					
+										calendar.unselect();
+									},
+									eventClick: function (info) {
+										if (confirm('삭제하시겠나요?')) {
+											var start = info.event.start;
+											var fee = info.event.title;
+					
+											info.event.remove();
+											updateMonthlyFee(start, -fee);
+											updateNetProfit(start);
+										}
+									},
+									editable: true,
+								});
+					
+								calendar.render();
+			
+							});
+					
+							function updateMonthlyFee(start, fee) {
+								var year = start.getFullYear();
+								var month = start.getMonth() + 1;
+								var key = year + "-" + (month < 10 ? "0" : "") + month;
+					
+								if (!monthlyFee[key]) {
+									monthlyFee[key] = 0;
+								}
+					
+								monthlyFee[key] += fee;
+							}
+					
+							function updateNetProfit(currentMonth) {
+								var year = currentMonth.getFullYear();
+								var month = currentMonth.getMonth() + 1;
+					
+								var key = year + "-" + (month < 10 ? "0" : "") + month;
+					
+								var totalNetProfit = 0;
+								for (var k in monthlyFee) {
+									totalNetProfit += monthlyFee[k];
+								}
+					
+								var netProfitElement = document.getElementById("net-profit");
+								netProfitElement.textContent = year + "년 " + month + "월 순이익: " + totalNetProfit.toFixed(2);
+							}
+						</script>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<!-- END panel -->
+	</div>
+	<!-- END #content -->
+    <script>
+        function mv1() {
+            location.href = "/view"
+        }
+        function mv2() {
+            location.href = "/view_tab_2"
+        }
+		function mv4() {
+			location.href = "/view_tab_4"
+		}
+    </script>
+	<!-- BEGIN scroll to top btn -->
+	<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top" data-toggle="scroll-to-top"><i
+			class="fa fa-angle-up"></i></a>
+	<!-- END scroll to top btn -->
+	</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+Server On : http://localhost:${PORT}/
+Connected to MSSQL
+[]
+{
+  Month_Data: '2023-01',
+  ITEM: '매출',
+  Separtes_Item: '임대료',
+  FEE: 1000,
+  MEMO: '임대',
+  ID: 111
+}
+{
+  Month_Data: '2023-12',
+  ITEM: '매출',
+  Separtes_Item: '임대료',
+  FEE: 1100,
+  MEMO: '12월 임대료',
+  ID: 168
+}
+[
+  {
+    ID: '111',
+    Month_Data: '2023-01',
+    Separtes_Item: '임대료',
+    FEE: 10000,
+    MEMO: '임대'
+  },
+  {
+    ID: '168',
+    Month_Data: '2023-12',
+    Separtes_Item: '임대료',
+    FEE: 11000,
+    MEMO: '12월 임대료'
+  }
+]
+[]
+{
+  Month_Data: '2023-03',
+  ITEM: '매출',
+  Separtes_Item: '카드수수료',
+  FEE: 53200,
+  MEMO: '카드수수료',
+  ID: 252
+}
+{
+  Month_Data: '2023-12',
+  ITEM: '매출',
+  Separtes_Item: '임대료',
+  FEE: 11000,
+  MEMO: '12월 임대료',
+  ID: 168
+}
+[
+  {
+    ID: '252',
+    Month_Data: '2023-03',
+    Separtes_Item: '카드수수료',
+    FEE: 5320,
+    MEMO: '카드수수료'
+  },
+  {
+    ID: '168',
+    Month_Data: '2023-12',
+    Separtes_Item: '임대료',
+    FEE: 110,
+    MEMO: '12월 임대료'
+  }
+]

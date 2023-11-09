@@ -1,0 +1,12 @@
+(node:3312) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Error: Failed to lookup view "/view_tab_2" in views directory "C:\Node_Web/template"
+    at Function.render (C:\Node_Web\node_modules\express\lib\application.js:597:17)
+    at ServerResponse.render (C:\Node_Web\node_modules\express\lib\response.js:1039:7)
+    at C:\Node_Web\index.js:195:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error: Failed to lookup view "/view_tab_2" in views directory "C:\Node_Web/template"
+    at Function.render (C:\Node_Web\node_modules\express\lib\application.js:597:17)
+    at ServerResponse.render (C:\Node_Web\node_modules\express\lib\response.js:1039:7)
+    at C:\Node_Web\index.js:195:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)

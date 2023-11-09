@@ -1,0 +1,50 @@
+Server On : http://localhost:${PORT}/
+Connected to MSSQL
+실행 /login
+[
+  { EMAIL: '박박', PW: '제발' },
+  { EMAIL: '박주원', PW: '998773' },
+  { EMAIL: '지현석', PW: '10293' },
+  { EMAIL: '지현석2', PW: 'post get' },
+  { EMAIL: 'IDCHECK', PW: '123456789' },
+  { EMAIL: 'TEST', PW: '1234' },
+  { EMAIL: 'wndnjs1102@naver.com', PW: '@hd6272ij@' },
+  { EMAIL: 'wndnjs5249', PW: '@hd6272ij@' }
+]
+[]
+{
+  Month_Data: '2023-01',
+  ITEM: '매출',
+  Separtes_Item: '임대료',
+  FEE: 10000,
+  MEMO: '임대',
+  ID: 111
+}
+[
+  {
+    ID: '111',
+    Month_Data: '2023-01',
+    Separtes_Item: '임대료',
+    FEE: 100,
+    MEMO: '임대'
+  }
+]
+[]
+{
+  Month_Data: '2023-01',
+  ITEM: '매입',
+  Separtes_Item: '임대료',
+  FEE: 2000,
+  MEMO: '매입 임대료',
+  ID: 112
+}
+{
+  Month_Data: '2023-10',
+  ITEM: '매입',
+  Separtes_Item: '부가세',
+  FEE: 9345892,
+  MEMO: '부가세',
+  ID: 359
+}
+실행 /estimate
+실행 /estimate
